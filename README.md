@@ -6,7 +6,7 @@
 
 #### 2023-08-23 Java Stady
 
-标识符匿名规则：
+##### 标识符匿名规则：
 
 1. **包名**：多单词组成时所有字母都小写：xxxyyyzzz
    例如：java.lang，com.aarafat
