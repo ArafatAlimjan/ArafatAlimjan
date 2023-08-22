@@ -19,8 +19,8 @@
 ```
 
 ```java
+// 案例2：三目运算符求两个数的最大值
    public static void main(String[] args) {
-      // 案例2：三目运算符求两个数的最大值
       int m = 20;
       int n = 20;
       int max = (m > n) ? m : n;
@@ -28,3 +28,14 @@
 
    }
 ```
+
+```java
+// 案例3：今天是周2，10天以后是周几？
+   public static void main(String[] args) {
+      int week = 2;
+      week += 10;
+      week %= 7;
+      System.out.println("今天是周2，10天以后是周" + ((week == 0) ? "日" : week));
+   }
+```
+
