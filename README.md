@@ -56,7 +56,7 @@ Java 语言提供了 8 种基本数据类型，大致分为 4 类：
 
 
 
-### 4. Scanner：
+### 3. Scanner：
 
 使用Scanner获取不同类型数据的步骤：
 
@@ -94,7 +94,7 @@ public class Main {
 
 
 
-### 5. Java中的流程控制：
+### 4. Java中的流程控制：
 
 Java 程序的结构分为：
 
