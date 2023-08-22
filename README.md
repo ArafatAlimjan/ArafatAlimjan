@@ -1,8 +1,3 @@
-- 👋 Hi, I’m @ArafatAlimjan
-- 👀 I’m interested in Java Vue Uniapp
-- 🌱 I’m currently learning Java basic
-- 📫 How to reach me arafatalimjan0811@gmail.com
-
 ## 学习笔记区：
 
 #### 2023-08-23 Java Stady
