@@ -94,7 +94,47 @@ public class Main {
 
 
 
-### 4. Java中的流程控制：
+
+
+### 4. Random：
+
+如何获取一个随机数？
+
+* 可以使用Java提供的API：Math类的**random()**
+
+> random() 会返回一个double类型的**0.0~1.0**之间的随机数
+
+```JAVA
+// 取一个0.0~1.0之间的随机数
+double num1 = Math.random();
+System.out.println(d1);
+```
+
+```java
+// 取一个0~100之间的随机整数
+int num2 = (int)(Math.random() * 101);
+System.out.println(num2);
+```
+
+```java
+// 取一个1~100之间的随机整数
+int num3 = (int)(Math.random() * 100) + 1;
+System.out.println(num3);
+```
+
+```java
+// 取一个[a,b]之间的随机整数
+int num4 = (int)(Math.random() * (b - a + 1)) + a;
+System.out.println(num4);
+```
+
+
+
+
+
+
+
+### 5. Java中的流程控制：
 
 Java 程序的结构分为：
 
