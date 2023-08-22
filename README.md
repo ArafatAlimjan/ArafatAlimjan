@@ -45,12 +45,12 @@ Java 语言提供了 **8** 种基本类型，大致分为 **4** 类
 在这些基本类型中，`boolean` 和 `char` 是唯二的无符号类型。
 
 ###### 引用数据类型
-1. 类(class)
-2. 数组(array)
-3. 接口(interface)
-4. 枚举(enum)
-5. 注解(annotation)
-6. 记录(record)
+* 类(class)
+* 数组(array)
+* 接口(interface)
+* 枚举(enum)
+* 注解(annotation)
+* 记录(record)
 
 
 ## 案例练习区：
