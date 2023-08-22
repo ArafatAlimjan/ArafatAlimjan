@@ -16,6 +16,8 @@
    例如：age，name，bookName，main，binarySearch，getName
 5. **常量名**：所有字母都大写，多单词时每个单词用下划线连接：XXX_YYY_ZZZ
    例如：MAX_VALUE，PI，DEFAULT_CAPACITY
+6. **见名知意**
+
 
 ```java
 // 案例1：交换m和n的值
