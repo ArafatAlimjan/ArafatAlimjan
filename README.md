@@ -132,8 +132,6 @@ System.out.println(num4);
 
 
 
-
-
 ### 5. Java中的流程控制：
 
 Java 程序的结构分为：
@@ -141,6 +139,8 @@ Java 程序的结构分为：
 - **顺序结构** 
 - **分支结构** 
 - **循环结构**
+
+
 
 #### if-else 条件判断结构
 
@@ -175,6 +175,43 @@ if(条件表达式1) {
 ```
 
 
+
+#### switch-case选择结构
+
+1. 执行过程：
+
+> 根据表达式中的值，依次匹配case语句，一旦与某个case的**常量**相等，那么就执行这个case中的执行语句。执行完执行语句后 1.**遇到break**会跳出当前switch-case结构 2.**没有遇到break**，则继续执行其后的case中的执行语句，直到遇到break或者完成所有的case以及default中的语句，退出当前switch-case结构(case穿透)
+
+2. 语法格式：
+
+```java
+int num1 = 1;
+switch(num1) {
+    case 0:
+        //执行语句1
+        System.out.println(0);
+        break;
+    case 1:
+        //执行语句2
+        System.out.println(1);
+        break;
+    case 2:
+        System.out.println(2);
+        //执行语句n
+        break;
+    default:
+        //执行语句n+1
+        break;
+}
+```
+
+3. switch中的表达式只能是特定的数据类型，如下：
+   * byte
+   * short
+   * int
+   * char
+   * 枚举(JDK5.0新增)
+   * String(JDK7.0新增)
 
 
 
