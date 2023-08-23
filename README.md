@@ -141,8 +141,9 @@ Java 程序的结构分为：
 - **循环结构**
 
 
+### 分支结构
 
-#### if-else 条件判断结构
+#### ① if-else 条件判断结构
 
 基本格式：
 
@@ -176,7 +177,7 @@ if(条件表达式1) {
 
 
 
-#### switch-case选择结构
+#### ② switch-case选择结构
 
 1. 执行过程：
 
@@ -206,12 +207,53 @@ switch(num1) {
 ```
 
 3. switch中的表达式只能是特定的数据类型，如下：
+
    * byte
    * short
    * int
    * char
    * 枚举(JDK5.0新增)
    * String(JDK7.0新增)
+
+4. case后面必须是**常量**不能是变量，也不能是一个范围
+
+   
+
+### 循环结构
+
+凡是循环结构，就一定会有以下四个要素：
+
+① 初始化条件
+② 循环条件
+③ 循环体
+④ 迭代部分
+
+
+
+#### ① for循环
+
+for循环的格式：
+
+```java
+for(①;②;④) {
+    ③
+}
+```
+
+for循环的执行过程：① - ② - ③ - ④ - ② - ③ - ④ - ..... - 
+
+
+
+#### ② while循环
+
+
+
+
+
+#### ③ do-while循环
+
+
+
 
 
 
@@ -304,3 +346,44 @@ public static void main(String[] args) {
     }
 }
 ```
+
+```java
+// 案例6：遍历1-100以内的偶数，获取偶数的个数以及所有的偶数和
+public static void main(String[] args) {
+    int count = 0; //记录偶数的个数
+    int sum = 0; //记录偶数的合
+
+    for(int i = 1; i <= 100; i++) {
+        if (i % 2 == 0) {
+            count++;
+            sum = sum + i;
+            System.out.println(i);
+        }
+    }
+    System.out.println("偶数的个数为：" + count);
+    System.out.println("偶数合为：" + sum);
+}
+```
+
+```java
+/*
+    案例7：输出所有的水仙花数，水仙花数是指一个3位数其各个位上的数字的立方和等于本身
+    例如：153 = 1*1*1 + 3*3*3 + 5*5*5
+     */
+public static void main(String[] args) {
+    int unitDigit; //个位
+    int tensDigit; //十位
+    int hundredsDigit; //百位
+    int sum;
+    for (int i = 100; i <= 999; i++) {
+        unitDigit = i % 10;
+        tensDigit = i / 10 % 10;
+        hundredsDigit = i / 100;
+        sum = unitDigit * unitDigit * unitDigit + tensDigit * tensDigit * tensDigit + hundredsDigit * hundredsDigit * hundredsDigit;
+        if (sum == i) {
+            System.out.println(i);
+        }
+    }
+}
+```
+
