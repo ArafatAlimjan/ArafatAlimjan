@@ -247,7 +247,7 @@ for循环的执行过程：① - ② - ③ - ④ - ② - ③ - ④ - ..... - ②
 #### ② while循环
 
 ```java
-①
+①;
 while(②) {
     ③
     ④
@@ -260,8 +260,48 @@ while循环的执行过程：① - ② - ③ - ④ - ② - ③ - ④ - ..... - �
 
 #### ③ do-while循环
 
+```java
+①;
+do{
+    ③
+	④
+} while(②);
+```
+
+do-while循环的执行过程：① - ③ - ④ - ② - ③ - ④ - ..... - ②
 
 
+
+#### ④ 嵌套循环
+
+内层循环充当了外层循环的**循环体**
+
+```java
+/*
+打印：
+        ******
+        ******
+        ******
+*/
+public static void main(String[] args) {
+    for (int j = 1; j <= 3; j++) {
+        for (int i = 1; i <= 5; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
+}
+```
+
+
+
+#### ④ break和continue
+
+* break：在循环体内结束整个循环过程
+
+* continue ：结束本次的循环，直接进行下一次的循环
+
+> break和continue后面都不能申明语句
 
 
 
@@ -392,6 +432,37 @@ public static void main(String[] args) {
             System.out.println(i);
         }
     }
+}
+```
+
+```java
+/*
+    案例8：随机生成一个1到100之间的数，让用户猜这个随机数是多少。
+    从键盘输入数，如果大了，提示"大了"；如果小了，提示"小了"，直到猜到正确的数字。
+     */
+public static void main(String[] args) {
+    // 初始化 Scanner 对象和随机数
+    Scanner scanner = new Scanner(System.in);
+    int randomNumber = (int) (Math.random() * 100) + 1;
+
+    System.out.println("随机数已生成，范围在1到100之间。请开始猜测：");
+
+    // 循环直到用户猜中为止
+    while (true) {
+        int inputNumber = scanner.nextInt();
+
+        if (inputNumber == randomNumber) {
+            System.out.println("恭喜你猜中了！");
+            break;
+        } else if (inputNumber < randomNumber) {
+            System.out.println("你猜的数小了。");
+        } else {
+            System.out.println("你猜的数大了。");
+        }
+    }
+
+    // 关闭 Scanner 对象
+    scanner.close();
 }
 ```
 
