@@ -441,23 +441,27 @@ for (int i = 0; i < list1.length; i++) {
 
 #### 8.7 数默认初始化值
 
-**整型元素的默认初始化值：**
+整型元素的默认初始化值：`0`
+
+浮点型元素的默认初始化值：`0.0`
+
+字符型元素的默认初始化值：`0` or `\u0000` (这两是一回事)
+
+boolean型元素的默认初始化值：`false`
+
+引用数据类型元素的默认初始化值：`null`
 
 
 
-**浮点型元素的默认初始化值：**
+#### 8.8 一维数组的内存解析
 
+**Java中的内存结构的划分（主要关心JVM运行时的内存环境）**
 
+为了提高运行效率，JVM虚拟机对内存空间进行了不同区域的划分，每一片区域都有特定的`处理数据方式`和`内存管理方式`
 
-**字符型元素的默认初始化值：**
+![JVM Memory](https://arafat-1313316262.cos.ap-guangzhou.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-26%20005440.png?q-sign-algorithm=sha1&q-ak=AKIDawZgvz5qGmxIxaWAqzjngo2YLzyzB0rqxhDrQ0tTGP8B5Qeow3mdEbG2wzhf92Ub&q-sign-time=1692982549;1692986149&q-key-time=1692982549;1692986149&q-header-list=host&q-url-param-list=ci-process&q-signature=121e1acb9f95dcf23d7026c861ba5db860264489&x-cos-security-token=i89ju0qaBs6EWwOcD3YU7SOrfXaNRF6a082b6b10ae9b7d64f443bbe160813c03eHU26xPcVfT6ARzpB8VRX1LAxzRo7BAyYq1HCHWpPB8Ftyfv3iLwyQneNWXTRIrOODZuKGZpakjk9ilNCuE3eeaxkD0CqXkZyiRQSVA7vyfj5DBRh4qk_K5tp0r0Vq2qFI2MKWZjZJDnSNtQ3PMM9HWFWv5YT_iNnOet9kDoz1d6JFbUloP4RtsNFRvL2L-p&ci-process=originImage)
 
-
-
-**boolean型元素的默认初始化值：**
-
-
-
-**引用数据类型元素的默认初始化值：**
+举例：具体一维数组代码的内存解析
 
 
 
