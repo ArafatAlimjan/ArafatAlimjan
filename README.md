@@ -457,11 +457,186 @@ boolean型元素的默认初始化值：`false`
 
 **Java中的内存结构的划分（主要关心JVM运行时的内存环境）**
 
-为了提高运行效率，JVM虚拟机对内存空间进行了不同区域的划分，每一片区域都有特定的`处理数据方式`和`内存管理方式`
+* 程序计数器
+* 虚拟机栈（与目前数组的存储相关）
+* 本地方法栈
+* 堆（与目前数组的存储相关）
+* 方法区
 
-![JVM Memory](https://arafat-1313316262.cos.ap-guangzhou.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-26%20005440.png?q-sign-algorithm=sha1&q-ak=AKIDawZgvz5qGmxIxaWAqzjngo2YLzyzB0rqxhDrQ0tTGP8B5Qeow3mdEbG2wzhf92Ub&q-sign-time=1692982549;1692986149&q-key-time=1692982549;1692986149&q-header-list=host&q-url-param-list=ci-process&q-signature=121e1acb9f95dcf23d7026c861ba5db860264489&x-cos-security-token=i89ju0qaBs6EWwOcD3YU7SOrfXaNRF6a082b6b10ae9b7d64f443bbe160813c03eHU26xPcVfT6ARzpB8VRX1LAxzRo7BAyYq1HCHWpPB8Ftyfv3iLwyQneNWXTRIrOODZuKGZpakjk9ilNCuE3eeaxkD0CqXkZyiRQSVA7vyfj5DBRh4qk_K5tp0r0Vq2qFI2MKWZjZJDnSNtQ3PMM9HWFWv5YT_iNnOet9kDoz1d6JFbUloP4RtsNFRvL2L-p&ci-process=originImage)
+为了提高运行效率，java对内存空间进行了不同区域的划分，每一片区域都有特定的`处理数据方式`和`内存管理方式`
 
-举例：具体一维数组代码的内存解析
+![JVM Memory](https://arafat-1313316262.cos.ap-guangzhou.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-26%20005440.png?q-sign-algorithm=sha1&q-ak=AKIDvlpahSgx5eJ-1mU49JIKmekFkpwROqSMAcI14Kme56vrHlN7sGoyvnfyvf-dCXeX&q-sign-time=1693068324;1693071924&q-key-time=1693068324;1693071924&q-header-list=host&q-url-param-list=ci-process&q-signature=39a168c4877d5e2a9184d20eb34016ad6fae6107&x-cos-security-token=oIPPltIQVsG42V222m3h9VyH4ToVcKIa6229b2134d1864ac5d549c7a74005527W8KMNFKRh6kPFHunr2qKdBDki9BDpfU1r-_h23BFF49Z0n7YCHxHkZiIh2Z45OKUqidWSHJE22zRcI9XEO8lfIkSGCUsGxigcSsGWNZvnXM-vtzH6df3z6r56lG4L_fMVFAkALdXfMnwy0yPicsCP87UYwH_-EJ0TWO2-SM41oy9SpBr1HSn6XuZJqIFOgmV&ci-process=originImage)
+
+**虚拟机栈**：用于存放方法中申明的局部变量
+
+**堆**：用于存放数组的实体即数组中所有的元素
+
+
+
+#### 8.9 二维数组
+
+**二维数组：** 一个一维数组array1作为另一个一维数组array2的元素的数组
+
+> 其实从数组底层运行机制来看，其实并没有多维数组的概念
+
+**二维数组的声明和初始化：** 
+
+```java
+//静态初始化
+int arr[][] = new int[][]{{1,2},{3,4},{5,6}};
+//动态初始化
+int arr[][] = new int[3][4];
+```
+
+**数组的长度：** 
+
+```java
+System.out.println(arr.length);
+System.out.println(arr[0].length);
+System.out.println(arr[1].length);
+```
+
+**数组的遍历：** 
+
+```java
+int arr[][] = new int[][]{{1,2},{3,4},{5,6}};
+for (int i = 0; i < arr.length; i++) {
+    for (int j = 0; j < arr[i].length; j++) {
+        System.out.println(arr[i][j]);
+    }
+}
+```
+
+#### 数组的常见算法
+
+**数组的扩容和缩容**
+
+
+
+**数组元素的查找**
+
+顺序查找：
+
+* 优点：
+* 缺点
+
+二分法查找：
+
+* 优点
+
+* 缺点
+
+
+
+**数组的排序**
+
+
+
+
+
+#### Arrays工具类的使用
+
+**1. Arrays.equals**
+
+```java
+//判断两个数组的内容是否一致
+int arr1[] = new int[]{1,2,3};
+int arr2[] = new int[]{1,2,3};
+System.out.println(arr1 == arr2); //判断地址是否一致
+boolean isEquals = Arrays.equals(arr1,arr2);
+System.out.println(isEquals); //判断两个数组的内容是否一致
+```
+
+**2. Arrays.equals**
+
+```java
+int arr1[] = new int[]{1,2,3};
+System.out.println(Arrays.toString(arr1)); //转字符串
+```
+
+**3. Arrays.fill**
+
+```java
+int arr1[] = new int[]{1,2,3};
+Arrays.fill(arr1,10); //替换填充
+System.out.println(Arrays.toString(arr1));
+```
+
+**4. Arrays.sort**
+
+```java
+int arr1[] = new int[]{5,2,9};
+Arrays.sort(arr1); //使用快速排序算法实现排序
+System.out.println(Arrays.toString(arr1));
+```
+
+**5. Arrays.equals**
+
+如果数组内有这个元素会返回这个元素的`索引`，如果没有找到会返回`负数`
+
+```java
+int arr1[] = new int[]{1,2,3};
+int index = Arrays.binarySearch(arr1,2); //二分查找(当前数组必须是有序的)
+System.out.println(index);
+```
+
+
+
+#### 数组中常见的异常
+
+* 数组索引越界异常：ArrayIndexOutOfBoundsException
+* 空指针异常：NullPointerException
+
+```java
+//索引越界异常：
+int arr1[] = new int[]{1,2,3};
+System.out.println(arr1[3]);
+System.out.println(arr1[-1]);
+
+//空指针异常1：
+int arr1[] = new int[10];
+arr1 = null;
+System.out.println(arr1[0]);
+//空指针异常2：
+int arr2[][] = new int[3][];
+System.out.println(arr2[0][1]);
+//空指针异常3：对象调方法，对象为null时，会空指针异常
+```
+
+
+
+
+
+### 9.面向对象
+
+
+
+```java
+public class person {
+    //类的属性(field),成员变量
+    String name;
+    char gander;
+    int age;
+
+    //方法，函数，method
+    public void eat(String food) {
+        System.out.println("吃：" + food);
+    }
+}
+
+public class index {
+    public static void main(String[] args) {
+        //类的实例化 == 创建类的对象 == 创建类的实例
+        //格式：类类型 对象吗 = 通过new创建的对象实体
+        person per = new person();
+        per.name = "张三";
+        System.out.println(per.name);
+        per.eat("苹果");
+    }
+}
+```
+
+
 
 
 
@@ -625,5 +800,115 @@ public static void main(String[] args) {
     // 关闭 Scanner 对象
     scanner.close();
 }
+```
+
+```java
+/*
+    案例9：定义一个int型的一维数组，包含十个元素，分别赋一些随机整数
+    然后求出所有元素中的最大值，最小值，综合，平均值并且输出
+    要求：所有随机数都是两位数[10,99]
+    提示：求[a,b]范围内随机数：(int)(Math.random() * (b - a + 1)) + a;
+     */
+public static void main(String[] args) {
+    //动态定义数组
+    int arr[] = new int[10];
+    //循环赋值
+    for (int i = 0; i < arr.length; i++) {
+        arr[i] = (int)(Math.random() * 90) + 10;
+        System.out.println(arr[i]);
+    }
+
+    //求最大值
+    int max = arr[0];
+    for (int i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+            max = arr[i];
+        }
+    }
+    System.out.println("最大值为：" + max);
+
+    //求最小值
+    int min = arr[0];
+    for (int i = 0; i < arr.length; i++) {
+        if (min > arr[i]) {
+            min = arr[i];
+        }
+    }
+    System.out.println("最小值为：" + min);
+
+    //求总合
+    int sum = arr[0];
+    for (int i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    System.out.println("总合为：" + sum);
+
+    //平均值
+    int avgValue = sum / arr.length;
+    System.out.println("平均值为：" + avgValue);
+
+
+}
+```
+
+```java
+/*
+    案例10：有十位评委给参赛选手打分，分数分别为：5,4,6,8,9,0,1,2,7,3
+    球选手最后得分（去掉一个最高分和一个最低分后的平均分
+     */
+public static void main(String[] args) {
+    int scores[] = {5,4,6,8,9,0,1,2,7,3};
+    //得到最高分和最低分和去除最高最低分和总分
+    int max = scores[0];
+    int min = scores[0];
+    int sum = 0;
+    for (int i = 0; i < scores.length; i++) {
+        if (max < scores[i]) {
+            max = scores[i];
+        }
+        if (min > scores[i]) {
+            min = scores[i];
+        }
+        sum += scores[i];
+    }
+    int avg = (sum - max - min) / (scores.length - 2);
+    System.out.println("去掉最高最低分后的平均分为：" + avg);
+}
+```
+
+```java
+/*
+    案例11：使用二维数组输出一个十行的杨辉三角
+     */
+public static void main(String[] args) {
+    int yangHui[][] = new int[10][];
+    //初始化外层数组元素
+    for (int i = 0; i < yangHui.length; i++) {
+        yangHui[i] = new int[i + 1];
+        //给数组的元素赋值
+        //给每行首末元素赋值为1
+        yangHui[i][0] = 1;
+        yangHui[i][i] = 1;
+        //给每行非首末元素赋值
+        //遍历 --> 从第二个元素开始 到n-1个元素结束
+        if (i >= 2) {
+            for (int j = 1; j < yangHui[i].length - 1; j++) {
+                yangHui[i][j] = yangHui[i - 1][j] + yangHui[i - 1][j - 1];
+            }
+        }
+    }
+    //遍历显示杨辉三角
+    for (int i = 0; i < yangHui.length; i++) {
+        for (int j = 0; j < yangHui[i].length; j++) {
+            System.out.print(yangHui[i][j] + "\t");
+        }
+        System.out.println();
+    }
+}
+
+```
+
+```java
+
 ```
 
