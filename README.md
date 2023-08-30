@@ -465,7 +465,7 @@ boolean型元素的默认初始化值：`false`
 
 为了提高运行效率，java对内存空间进行了不同区域的划分，每一片区域都有特定的`处理数据方式`和`内存管理方式`
 
-![JVM Memory](https://arafat-1313316262.cos.ap-guangzhou.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-26%20005440.png?q-sign-algorithm=sha1&q-ak=AKIDvlpahSgx5eJ-1mU49JIKmekFkpwROqSMAcI14Kme56vrHlN7sGoyvnfyvf-dCXeX&q-sign-time=1693068324;1693071924&q-key-time=1693068324;1693071924&q-header-list=host&q-url-param-list=ci-process&q-signature=39a168c4877d5e2a9184d20eb34016ad6fae6107&x-cos-security-token=oIPPltIQVsG42V222m3h9VyH4ToVcKIa6229b2134d1864ac5d549c7a74005527W8KMNFKRh6kPFHunr2qKdBDki9BDpfU1r-_h23BFF49Z0n7YCHxHkZiIh2Z45OKUqidWSHJE22zRcI9XEO8lfIkSGCUsGxigcSsGWNZvnXM-vtzH6df3z6r56lG4L_fMVFAkALdXfMnwy0yPicsCP87UYwH_-EJ0TWO2-SM41oy9SpBr1HSn6XuZJqIFOgmV&ci-process=originImage)
+![JVM Memory](https://arafat-1313316262.cos.ap-guangzhou.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-26%20005440.png?q-sign-algorithm=sha1&q-ak=AKID2QRxg-MSnqy-wjcd4j_NmSonVGaACCA-Ast4D6DAU22pl7td0DUbVXJEa3D2icC_&q-sign-time=1693374342;1693377942&q-key-time=1693374342;1693377942&q-header-list=host&q-url-param-list=ci-process&q-signature=343ca0640cec37bc77321fdaf9866ecc5a551a35&x-cos-security-token=4UPt2p2MX6pT6rLXyN0BxfDMcLcOt5Ma986d443a544187d6bbb68fdbf9ae7d96WsytCCMLeXadAoybeZXMSRdiRp0XnSXsAE6raH_alkmgEI9znKObFWS-fRy3WoQEQ63hqEQ3ATTV1BxRmcEq2fC1-qkTfdq_onyA7pc05TBqiNnik8CIsqaZevGum7kj6acKBq1ctCyeMiFxw4cov914Mn-xUnhTLvgBzCPq_n7JU4VAL8TLsFAEaVZida5o&ci-process=originImage)
 
 **虚拟机栈**：用于存放方法中申明的局部变量
 
@@ -506,31 +506,6 @@ for (int i = 0; i < arr.length; i++) {
     }
 }
 ```
-
-#### 数组的常见算法
-
-**数组的扩容和缩容**
-
-
-
-**数组元素的查找**
-
-顺序查找：
-
-* 优点：
-* 缺点
-
-二分法查找：
-
-* 优点
-
-* 缺点
-
-
-
-**数组的排序**
-
-
 
 
 
@@ -603,7 +578,102 @@ System.out.println(arr2[0][1]);
 //空指针异常3：对象调方法，对象为null时，会空指针异常
 ```
 
+#### 数组元素的查找
 
+##### 顺序查询
+
+* 优点：算法简单
+* 缺点：执行效率低，执行的时间复杂度O(n)
+
+
+```java
+// 顺序查找
+boolean isFlag = true;
+int[] arr1 = new int[]{34,54,65,98,2,6,4,8,5};
+int target = 0;
+for (int i = 0; i < arr1.length; i++) {
+    if (arr1[i] == target) {
+        System.out.println("找到了：" + target + "，对应的索引为：" + arr1[i]);
+        isFlag = false;
+        break;
+    }
+}
+if (isFlag) {
+    System.out.println("没找到");
+}
+```
+
+##### 二分查找
+
+* 优点：执行效率高，执行时间复杂度*O*(log2*n*)
+* 缺点：算法相较于顺序查找难
+
+> "对数"（log）基本上就是问：“我需要用多少个相同的数字相乘才能得到另一个数字？”。例如，\(\log_2 8 = 3\)，因为 \(2 \times 2 \times 2 = 8\)
+
+![二分查找](https://arafat-1313316262.cos.ap-guangzhou.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-29%20140343.png?q-sign-algorithm=sha1&q-ak=AKIDhYVj0auvfcnZv2Sjoeetf8MCOtktSbgPb5neqdIhxsXxUtCjlqhTjHRsfVE2uynx&q-sign-time=1693374279;1693377879&q-key-time=1693374279;1693377879&q-header-list=host&q-url-param-list=ci-process&q-signature=89d6a6bf7a72a01f675640a13a071c8cbfa950f6&x-cos-security-token=bZhUWsImMZkyy6kvv5ovn6N8ZBfB3pta096d0ec38c687b890df95ef1590cca38OtVWXrh8vAeyJJkSODQgLh8N6yxz2RYAMzGA2eFBcXdkU5SAm5vUb-YXKAdElNr7FX2bstJGDmqjKhNk0AlehwK6XkIIWyFbx5D0FLS7pL_JOgFFT_HAAXNNI3NqsFHIuTt_kUDCCLdzkQYa86x-OH216FsZZLxnjF2XeeHKKFhLOLSiMtfpX_u3XI5YK7VV&ci-process=originImage)
+
+**代码实现：**
+
+```java
+boolean isFlag = false; // 修改为 false
+int[] arr1 = new int[]{34, 54, 65, 98, 2, 6, 4, 8, 5};
+Arrays.sort(arr1); // 对数组进行排序
+int target = 5;
+int head = 0; // 索引头
+int end = arr1.length - 1; // 索引尾
+
+while (head <= end) {
+    int middle = (head + end) / 2;
+    if (target == arr1[middle]) {
+        System.out.println("找到了：" + target + "，索引为：" + middle);
+        isFlag = true; // 找到目标，设置标志为 true
+        break; // 退出循环
+    } else if (target > arr1[middle]) { // 修改为 arr1[middle]
+        head = middle + 1; // 修改为 middle + 1
+    } else {
+        end = middle - 1; // 修改为 middle - 1
+    }
+}
+
+if (!isFlag) {
+    System.out.println("没有找到目标值：" + target);
+}
+```
+
+
+
+#### 数组元素的排序
+
+##### 冒泡排序
+
+```java
+// 冒泡排序
+int[] arr1 = new int[]{34, 54, 65, 98, 2, 6, 4, 8, 5};
+
+for (int i = 0; i < arr1.length; i++) {
+    System.out.print(arr1[i] + "\t");
+}
+
+for (int j = 0; j < arr1.length - 1; j++) {
+    for (int i = 0; i < arr1.length - 1 - j; i++) {
+        if (arr1[i] > arr1[i + 1]) {
+            // 交换arr[i]和arr[i+1]
+            int temp = arr1[i];
+            arr1[i] = arr1[i + 1];
+            arr1[i + 1] = temp;
+        }
+    }
+}
+
+System.out.println();
+for (int i = 0; i < arr1.length; i++) {
+    System.out.print(arr1[i] + "\t");
+}
+```
+
+
+
+##### 快速排序
 
 
 
@@ -635,8 +705,6 @@ public class index {
     }
 }
 ```
-
-
 
 
 
